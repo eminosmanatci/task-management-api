@@ -91,16 +91,3 @@ npm install
 npm run dev
 📄 License
 This project is licensed under the MIT License.
-
-
----
-
-### 🏁 Ne yapmalısın?
-1. Yukarıdaki kodu kopyala ve `task-management-api/README.md` dosyasına yapıştır.
-2. Kaydet ve kapat.
-3. Terminale şu komutları yaz:
-
-```powershell
-git add README.md
-git commit -m "Docs: Update README with English version and screenshots"
-git push origin main
