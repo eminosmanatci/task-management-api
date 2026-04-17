@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    # ... (diğer db ayarları aynı kalsın)
+
+  backend:
+    build: ./backend  # Path güncellendi
+    ports:
+      - "8000:8000"
+    # ... (diğer backend ayarları aynı kalsın)
+
+  frontend:
+    build: ./frontend # Path güncellendi
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
