@@ -48,19 +48,31 @@ Real-time interactive Swagger documentation for testing backend services and exp
 
 ---
 
-## 🏗 Project Structure
+## 🏗 Project Structure & Architecture
 
-The project follows a **Monorepo** pattern:
-
+The project follows a **Monorepo** pattern with a clear separation of concerns using **Clean Architecture** principles:
 ```plain
 task-management-api/
 ├── assets/             # Documentation screenshots
 ├── backend/            # FastAPI, PostgreSQL, SQLAlchemy, Alembic
-│   ├── app/            # Business Logic (Routers, Services, Models)
+│   ├── app/            # Core Application Logic
+│   │   ├── models/     # Domain: SQLAlchemy database models
+│   │   ├── schemas/    # DTOs: Pydantic data validation & serialization
+│   │   ├── services/   # Business Logic: Complex operations & workflows
+│   │   └── routers/    # API Layers: FastAPI endpoint definitions
 │   └── dockerfile      # Backend Docker configuration
 ├── frontend/           # React, TypeScript, Vite, Tailwind/CSS
 │   └── src/            # Frontend source code
 └── docker-compose.yml  # Full-stack system orchestration
+🏛 Backend Architecture Layers
+Domain (Models): Defines the core data structures and database relationships using SQLAlchemy.
+
+Schemas (DTOs): Handles request/response validation using Pydantic, ensuring data integrity.
+
+Service Layer: Houses the core business logic, decoupled from the API endpoints for better testability.
+
+API Layer (Routers): Handles HTTP requests, dependency injection, and communicates with the service layer.
+
 🚀 Quick Start
 Running with Docker (Recommended)
 The fastest way to get the system running locally is using Docker:
